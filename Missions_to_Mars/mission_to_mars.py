@@ -26,7 +26,7 @@ def scrape():
         titles.append(text_titles)
     title = titles[0]
 
-    mars_info.update({"News Title": title})
+    mars_info.update({"Title": title})
 
     #Extract description paragraphs from html
     p_results = soup.find_all("div", class_="rollover_description_inner")
@@ -37,7 +37,7 @@ def scrape():
         paragraphs.append(text_paragraphs)
     paragraph = paragraphs[0]
 
-    mars_info.update({"News Description": paragraph})
+    mars_info.update({"Description": paragraph})
 
     # FEATURED IMAGE
 
@@ -60,7 +60,7 @@ def scrape():
     
     #Concantenatet base url and featured image to get final path
     featured_image_url = base_url + url
-    mars_info.update({"Featured Image URL": featured_image_url})
+    mars_info.update({"Image_URL": featured_image_url})
     
     # MARS WEATHER NOT DONE
     # MARS FACTS
@@ -77,7 +77,7 @@ def scrape():
     #Convert pandas table to html and update mars info dictionary
     html_table = mars_facts.to_html()
     html_table = html_table.replace('\n', '')
-    mars_info.update({"Facts about Mars": html_table})
+    mars_info.update({"Mars_Facts": html_table})
     
     # MARS HEMISPHERES
 
@@ -134,9 +134,6 @@ def scrape():
     for v in zip(values[::2], values[1::2]):
         hemisphere_image_urls.append(dict(zip(keys, v)))
         
-    mars_info.update({"Mars Hemisphere Images": hemisphere_image_urls})
+    mars_info.update({"Mars_Images": hemisphere_image_urls})
 
     return mars_info
-
-
-scrape(mars_info)
