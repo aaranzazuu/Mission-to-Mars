@@ -60,7 +60,7 @@ def scrape():
     
     #Concantenatet base url and featured image to get final path
     featured_image_url = base_url + url
-    mars_info.update({"Image_URL": featured_image_url})
+    mars_info.update({"featured_url": featured_image_url})
     
     # MARS WEATHER NOT DONE
     # MARS FACTS
