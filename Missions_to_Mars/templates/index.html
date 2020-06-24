@@ -21,26 +21,32 @@
     <p>{{mars_info.Description }}</p>
     <div class="container">
       <div class="row">
-        <div class="col-sm">
+        <div class="col-6">
           <h3>Featured Mars Image</h3>
-          <img src="https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA19323-1920x1200.jpg" class="img-fluid" alt="figure 1">
+          <img src="mars_info.featured_url" alt="figure 1">
           <p>{{mars_info.Image_URL}}</p>
         </div>
-        <div class="col-sm">
+        <div class="col-6">
           <h3>Mars Facts</h3>
-          <a href= "{{mars_info.featured_url }}">Link Here</a>
+          <table>{{mars_info.Mars_Facts}}</table>
         </div>
       </div>
     </div>
     <h3>Mars Hemispheres</h3>
     <div class="container">
       <div class="row">
-        <div class="col-sm">
-          <img src= {{mars_info.featured_url}} alt="featured">
+        <div class="col-6">
+          <img src="{{ mars_info.Mars_Images[0].img_url  }}" alt="Mars">
+          <b>{{mars_info.Mars_Images[0].title}}</b>
         </div>
-        <div class="col-sm">
-          <h3>Mars Facts</h3>
-          {{mars_info.Mars_Facts }}
+        <div class="col-s6">
+          <b>{{mars_info.Mars_Images[1].title}}</b>
+        </div>
+        <div class="col-6">
+          <b>{{mars_info.Mars_Images[2].title}}</b>
+        </div>
+        <div class="col-6">
+        <b>{{mars_info.Mars_Images[3].title}}</b>
         </div>
       </div>
     </div>
