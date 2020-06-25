@@ -59,7 +59,7 @@ def scrape():
     url = str(img_results[0]["style"].split(" ")[1].strip("url(';')"))
     
     #Concantenatet base url and featured image to get final path
-    featured_image_url = base_url + url
+    featured_image_url = f"http://{base_url}{url}"
     mars_info.update({"featured_url": featured_image_url})
     
     # MARS WEATHER NOT DONE
@@ -76,7 +76,6 @@ def scrape():
     
     #Convert pandas table to html and update mars info dictionary
     html_table = mars_facts.to_html()
-    html_table = html_table.replace('\n', '')
     mars_info.update({"Mars_Facts": html_table})
     
     # MARS HEMISPHERES
@@ -102,7 +101,6 @@ def scrape():
         img_names.append(img.h3.text)
         links.append(img.a["href"])
 
-
     #Loop through concantenated base url and link extract to then scrape
     results_list = []
     for link in links:
@@ -117,7 +115,7 @@ def scrape():
     for result in results_list:
         lists = result[0].find_all("li")
         for l in lists:
-            if l.a.text == "Original":
+            if l.a.text == "Sample":
                 img_urls.append(l.a["href"])
     
     #Make a list of the keys I will need to make the dictionary
